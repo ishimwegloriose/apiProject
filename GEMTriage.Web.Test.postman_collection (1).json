@@ -1,0 +1,1407 @@
+{
+	"info": {
+		"_postman_id": "a0bb5ead-38f5-4143-ac99-db7444db7180",
+		"name": "GEMTriage.Web.Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Integration-GEM-eIS",
+			"item": [
+				{
+					"name": "GET GemTriage/GetPolicyById/{policyId}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ecf8577-58a3-44f5-b993-e80897e115a9",
+								"exec": [
+									"pm.test(\"GET /api/GemTriage/GetPolicyById/{policyId} - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /api/GemTriage/GetPolicyById/{policyId} - Result policy Id matches request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.policy.policyId).to.eql(1400000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							},
+							{
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetPolicyById/1400000",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								"GetPolicyById",
+								"1400000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/GetClaimByNumber/{claimNumber}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ecf8577-58a3-44f5-b993-e80897e115a9",
+								"exec": [
+									"pm.test(\"GET /GetClaimByNumber/{claimNumber} - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /GetClaimByNumber/{claimNumber} - Result claim number matches request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.response.claimBasic.claimNumber).to.eql(1400000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetClaimByNumber/1400000",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								"GetClaimByNumber",
+								"1400000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/GetClientTitle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ecf8577-58a3-44f5-b993-e80897e115a9",
+								"exec": [
+									"pm.test(\"GET /GetClientTitle - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"",
+									"pm.test(\"GET /GetClientTitle - At least 4 results are returned\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.response.length).to.be.at.least(4);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetClientTitle",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								"GetClientTitle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/GetContactType",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ecf8577-58a3-44f5-b993-e80897e115a9",
+								"exec": [
+									"pm.test(\"GET /GetContactType - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"",
+									"pm.test(\"GET /GetContactType - At least 6 results are returned\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.response.length).to.be.at.least(6);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetContactType",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								"GetContactType"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4eadbba4-4e07-47d3-bd6d-4ff27b1a6db2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "df6b4e52-cde2-4e73-a6c4-bb85babfcfef",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Integration-Infermedica",
+			"item": [
+				{
+					"name": "GET GemTriage/GetSymptoms/{languageId}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4588fa86-4b5e-49eb-b6e7-7475070b81d4",
+								"exec": [
+									"pm.test(\"GET /GetSymptoms/{languageId} - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /GetSymptoms/{languageId} - At least 10 results are returned\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.length).to.be.at.least(10);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetSymptoms/1",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								"GetSymptoms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/NLPProcessor/{languageId}/{inputText}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4588fa86-4b5e-49eb-b6e7-7475070b81d4",
+								"exec": [
+									"pm.test(\"GET /NLPProcessor/{languageId}/{inputText} - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /NLPProcessor/{languageId}/{inputText} - At least 1 result is returned\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.mentions.length).to.be.at.least(1);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/NLPProcessor/1/Swelling",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								"NLPProcessor",
+								"1",
+								"Swelling"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/RiskFactors/{languageId}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4588fa86-4b5e-49eb-b6e7-7475070b81d4",
+								"exec": [
+									"pm.test(\"GET /RiskFactors/{languageId} - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /RiskFactors/{languageId} - At least 10 results are returned\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.length).to.be.at.least(9);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/RiskFactors/1",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								"RiskFactors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/RiskFactors/{languageId}/{riskFactorId}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4588fa86-4b5e-49eb-b6e7-7475070b81d4",
+								"exec": [
+									"pm.test(\"GET /RiskFactors/{languageId}/{riskFactorId} - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /RiskFactors/{languageId}/{riskFactorId} - Has exactly 1 result is returned\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.length).to.eql(1);",
+									"});",
+									"",
+									"pm.test(\"GET /RiskFactors/{languageId}/{riskFactorId} - Result has same id as requested\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData[0].id).to.eql(\"p_167\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/RiskFactors/1/p_167",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								"RiskFactors",
+								"1",
+								"p_167"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST GemTriage/GetRedFlags",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4588fa86-4b5e-49eb-b6e7-7475070b81d4",
+								"exec": [
+									"pm.test(\"POST /RedFlags - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Gender\": \"male\",\n    \"Age\": \"30\",\n    \"PresentSymptoms\": [\n    ],\n    \"AbsentSymptoms\": [\n    ],\n    \"PresentRiskFactor\": [\n    ],\n    \"AbsentRiskFactor\": [\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetRedFlags",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								"GetRedFlags"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Area-Geospatial",
+			"item": [
+				{
+					"name": "GET GemTriage/GeoLocateByAddress/{address}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4588fa86-4b5e-49eb-b6e7-7475070b81d4",
+								"exec": [
+									"pm.test(\"GET /GeoLocateByAddress/{address} - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /GeoLocateByAddress/{address} - Result city matches request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.results[0].address_components[0].long_name).to.eql(\"New York\");",
+									"});",
+									"",
+									"pm.test(\"GET /GeoLocateByAddress/{address} - Result state matches request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.results[0].address_components[1].long_name).to.eql(\"New York\");",
+									"});",
+									"",
+									"pm.test(\"GET /GeoLocateByAddress/{address} - Result country matches request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.results[0].address_components[2].long_name).to.eql(\"United States\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GeoLocateByAddress/NEW YORK CITY New York United States",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								
+								
+								"GeoLocateByAddress",
+								"NEW YORK CITY New York United States"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/GetCountrySynonymList",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4588fa86-4b5e-49eb-b6e7-7475070b81d4",
+								"exec": [
+									"pm.test(\"GET /GetCountrySynonymList - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /GetCountrySynonymList - At least 10 results are returned\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.length).to.be.at.least(10);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetCountrySynonymList",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								
+								
+								"GetCountrySynonymList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/GetCountries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4588fa86-4b5e-49eb-b6e7-7475070b81d4",
+								"exec": [
+									"pm.test(\"GET /GetCountries - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /GetCountries - At least 10 results are returned\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.length).to.be.at.least(10);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetCountries",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								
+								
+								"GetCountries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/GetEmergencyNumber/{countryName}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4588fa86-4b5e-49eb-b6e7-7475070b81d4",
+								"exec": [
+									"pm.test(\"GET /GetEmergencyNumber - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /GetEmergencyNumber - Response number attribute as expected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.number).to.eql(\"911\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetEmergencyNumber/United States",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								
+								
+								"GetEmergencyNumber",
+								"United States"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/GemTriage/GetStatesByCountry/{countryCode}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4588fa86-4b5e-49eb-b6e7-7475070b81d4",
+								"exec": [
+									"pm.test(\"GET /GetStatesByCountry/{countryCode} - Response HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /GetStatesByCountry/{countryCode} - Result country matches request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData[0].cC1).to.eql(\"UK\");",
+									"});",
+									"",
+									"pm.test(\"GET /GetStatesByCountry/{countryCode} - At least 10 results are returned\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.length).to.be.at.least(10);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetStatesByCountry/UK",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								
+								
+								"GetStatesByCountry",
+								"UK"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Area-Organization",
+			"item": [
+				{
+					"name": "GET GemTriage/GetOrganizationLogoByName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a363dcb4-eeae-4060-9017-2364d765392c",
+								"exec": [
+									"pm.test(\"GET /GetOrganizationLogoByName HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /GetOrganizationLogoByName response attribute has at least 100 characters\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.response.length).to.be.at.least(100);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							},
+							{
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetOrganizationLogoByName/Logo/png",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								
+								
+								"GetOrganizationLogoByName",
+								"Logo",
+								"png"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/GetSubOrganizations/{organizationId}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a363dcb4-eeae-4060-9017-2364d765392c",
+								"exec": [
+									"pm.test(\"GET /GetSubOrganizations HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /GetSubOrganizations - Response has at least 10 items\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.length).to.be.at.least(10);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							},
+							{
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetSubOrganizations/13",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								
+								
+								"GetSubOrganizations",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET GemTriage/GetUserOrganizationById/{userOrganizationId}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a363dcb4-eeae-4060-9017-2364d765392c",
+								"exec": [
+									"pm.test(\"GET /GetUserOrganizationById/{userOrganizationId} HTTP status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"GET /GetUserOrganizationById/{userOrganizationId} - Response userOrganizationId matches request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.userOrganizationId).to.eql(4);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							},
+							{
+								"key": "{{gemTriageAPIKeyName}}",
+								"value": "{{gemTriageAPIKeyValue}}",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{gemTriageAPIUrl}}/GetUserOrganizationById/4",
+							"host": [
+								"{{gemTriageAPIUrl}}"
+							],
+							"path": [
+								
+								
+								"GetUserOrganizationById",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "GET GemTriage/GetGeneralSettings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a363dcb4-eeae-4060-9017-2364d765392c",
+						"exec": [
+							"pm.test(\"GET /GetGeneralSettings HTTP status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"GET /GetGeneralSettings - Response defaultLocationAddress attribute is as expected\", function () {",
+							"    var jsonData = pm.response.json();",
+							"",
+							"    pm.expect(jsonData.defaultLocationAddress).to.eql(\"73 Queen, Sherbrooke, Quebec J1M 0C9, Canada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					},
+					{
+						"key": "{{gemTriageAPIKeyName}}",
+						"value": "{{gemTriageAPIKeyValue}}",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{gemTriageAPIUrl}}/GetGeneralSettings",
+					"host": [
+						"{{gemTriageAPIUrl}}"
+					],
+					"path": [
+						
+						
+						"GetGeneralSettings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET GemTriage/GetCareDeclinedOptions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a363dcb4-eeae-4060-9017-2364d765392c",
+						"exec": [
+							"pm.test(\"GET /GetCareDeclinedOptions HTTP status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"GET /GetCareDeclinedOptions - Response has at least 12 elements\", function () {",
+							"    var jsonData = pm.response.json();",
+							"",
+							"    pm.expect(jsonData.length).to.be.at.least(14);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					},
+					{
+						"key": "{{gemTriageAPIKeyName}}",
+						"value": "{{gemTriageAPIKeyValue}}",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{gemTriageAPIUrl}}/GetCareDeclinedOptions",
+					"host": [
+						"{{gemTriageAPIUrl}}"
+					],
+					"path": [
+						
+						
+						"GetCareDeclinedOptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET GemTriage/GetDeclinedTelemedicineOptions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a363dcb4-eeae-4060-9017-2364d765392c",
+						"exec": [
+							"pm.test(\"GET /GetDeclinedTelemedicineOptions HTTP status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"GET /GetDeclinedTelemedicineOptions - Response has at least 2 elements\", function () {",
+							"    var jsonData = pm.response.json();",
+							"",
+							"    pm.expect(jsonData.response.length).to.be.at.least(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					},
+					{
+						"key": "{{gemTriageAPIKeyName}}",
+						"value": "{{gemTriageAPIKeyValue}}",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{gemTriageAPIUrl}}/GetDeclinedTelemedicineOptions",
+					"host": [
+						"{{gemTriageAPIUrl}}"
+					],
+					"path": [
+						
+						
+						"GetDeclinedTelemedicineOptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST GemTriage/GetLocations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4588fa86-4b5e-49eb-b6e7-7475070b81d4",
+						"exec": [
+							"pm.test(\"POST /Getlocations - Response HTTP status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"POST /Getlocations - Result city matches request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"",
+							"    pm.expect(jsonData[0].city).to.eql(\"Miami\");",
+							"});",
+							"",
+							"pm.test(\"POST /Getlocations - Result state matches request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"",
+							"    pm.expect(jsonData[0].province).to.eql(\"Florida\");",
+							"});",
+							"",
+							"pm.test(\"POST /Getlocations - Result country matches request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"",
+							"    pm.expect(jsonData[0].country).to.eql(\"United States\");",
+							"});",
+							"",
+							"pm.test(\"POST /Getlocations - Result is within expected radius\", function () {",
+							"    var jsonData = pm.response.json();",
+							"",
+							"    pm.expect(jsonData[0].distance).to.be.at.most(50);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					},
+					{
+						"key": "{{gemTriageAPIKeyName}}",
+						"value": "{{gemTriageAPIKeyValue}}",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lat\": 25.790281295776367,\n    \"Longitude\": -80.1871337890625,\n    \"City\": \"Miami\",\n    \"Province\": \"Florida\",\n    \"Country\": \"United States\",\n    \"Time\": \"2019-08-16T11:14:28.1679976-04:00\",\n    \"Radius\": 50,\n    \"Unit\": \"km\",\n    \"Age\": 35,\n    \"Score\": 40,\n    \"Service1\": \"Telemedicine\",\n    \"Service2\": \"Clinic\",\n    \"Service3\": \"Urgent Care\",\n    \"Service4\": \"Emergency Room\",\n    \"Service5\": \"\",\n    \"Service6\": \"\",\n    \"Service7\": \"\",\n    \"Service8\": \"\",\n    \"Service9\": \"\",\n    \"Service10\": \"\",\n    \"Service11\": \"\",\n    \"Service12\": \"\",\n    \"Service13\": \"\",\n    \"Service14\": \"\",\n    \"Service15\": \"\",\n    \"Service16\": \"\"\n}"
+				},
+				"url": {
+					"raw": "{{gemTriageAPIUrl}}/Getlocations",
+					"host": [
+						"{{gemTriageAPIUrl}}"
+					],
+					"path": [
+						
+						
+						"Getlocations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET GemTriage/GetUsernameDetails",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a363dcb4-eeae-4060-9017-2364d765392c",
+						"exec": [
+							"pm.test(\"GET /GetUsernameDetails HTTP status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"GET /GetUsernameDetails email attribute as expected\", function () {",
+							"    var jsonData = pm.response.json();",
+							"",
+							"    pm.expect(jsonData.email).to.eql(\"mathieu.isabel@globalexcel.com\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					},
+					{
+						"key": "{{gemTriageAPIKeyName}}",
+						"value": "{{gemTriageAPIKeyValue}}",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{gemTriageAPIUrl}}/GetUsernameDetails/mathieu.isabel@globalexcel.com/",
+					"host": [
+						"{{gemTriageAPIUrl}}"
+					],
+					"path": [
+						"GetUsernameDetails",
+						"mathieu.isabel@globalexcel.com",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
