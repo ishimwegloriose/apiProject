@@ -1,0 +1,11 @@
+stages:
+  - test
+install newman:
+  stages: tests
+  image:
+   name: postman-newman/alpine33
+   script:
+     npm install newman -g 
+     - 
+
+     
